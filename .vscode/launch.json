@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": ".NET Core Launch (console)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/MI_MCP/bin/Debug/net10.0/MI_MCP.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/MI_MCP",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        }
+    ]
+}

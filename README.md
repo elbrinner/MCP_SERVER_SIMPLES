@@ -1,5 +1,11 @@
 # Servidor MCP
 
+![MCP Inspector - lista de herramientas y resultado](img/list.png)
+
+
+
+> Nota: las imágenes están en la carpeta `img/` como `img1.png` y `list.png`. Si prefieres moverlas a `docs/images/`, actualiza las rutas aquí o avisame y las muevo.
+
 https://learn.microsoft.com/es-es/dotnet/ai/quickstarts/build-mcp-server
 
 Este README fue creado utilizando la plantilla de proyecto de servidor MCP en C#.
@@ -53,7 +59,64 @@ Para probar este servidor MCP desde el código fuente (localmente) sin utilizar 
 
 ## Probando el servidor MCP
 
-Una vez configurado, puedes pedirle a Copilot Chat un número aleatorio, por ejemplo, `Dame 3 números aleatorios`. Debería pedirte que uses la herramienta `get_random_number` en el servidor MCP `MI_MCP` y mostrarte los resultados.
+### Usando el Inspector MCP
+![MCP Inspector - conexión y herramientas vacías](img/img1.png)
+
+Para probar el servidor MCP de forma interactiva, puedes usar el inspector oficial de MCP. Esta herramienta te permite ejecutar y probar las herramientas del servidor en una interfaz gráfica en el navegador.
+
+1. Asegúrate de tener Node.js instalado (versión 16 o superior).
+2. Ejecuta el siguiente comando desde la raíz del proyecto (`/Users/elbrinner/Documents/Develop/MCP_SIMPLES`):
+
+   ```bash
+   npx @modelcontextprotocol/inspector --command "dotnet run --project MI_MCP/MI_MCP.csproj"
+   ```
+
+3. El inspector se abrirá automáticamente en tu navegador (por defecto en `http://localhost:5173`).
+4. En la interfaz, podrás:
+   - Ver todas las herramientas disponibles.
+   - Ejecutar herramientas manualmente con parámetros.
+   - Ver las respuestas en tiempo real.
+   - Depurar errores si ocurren.
+
+Esto es útil para desarrollo y pruebas rápidas sin necesidad de integrar con un cliente MCP completo.
+
+### Herramientas disponibles
+
+#### 1. Números aleatorios (RandomNumberTools)
+- **GetRandomNumber**: Genera un número aleatorio entre un mínimo (inclusivo) y máximo (exclusivo).
+  - Ejemplo: "Dame un número aleatorio entre 1 y 100" o "Genera 5 números aleatorios entre 10 y 50".
+
+#### 2. Clima (WeatherTools)
+- **GetCityWeather**: Describe el clima aleatorio en una ciudad proporcionada. Puedes personalizar las opciones de clima configurando la variable de entorno `WEATHER_CHOICES` (por defecto: templado,lluvioso,tormentoso).
+  - Ejemplo: "Dime el clima en Madrid" o "Describe el clima en Nueva York".
+
+#### 3. Matemáticas (MathTools)
+- **Calcular**: Realiza operaciones matemáticas básicas (suma, resta, multiplicación, división) entre dos números.
+  - Ejemplo: "Suma 15 y 27", "Resta 100 menos 25", "Multiplica 6 por 8", "Divide 144 entre 12".
+
+#### 4. Conversiones (ConversionTools)
+- **ConvertirTemperatura**: Convierte una temperatura de grados Celsius a Fahrenheit.
+  - Ejemplo: "Convierte 25 grados Celsius a Fahrenheit" o "Cuántos grados Fahrenheit son 0 grados Celsius".
+
+#### 5. Seguridad (SecurityTools)
+- **GenerarContrasena**: Genera una contraseña aleatoria de longitud especificada (por defecto 8 caracteres).
+  - Ejemplo: "Genera una contraseña de 12 caracteres" o "Crea una contraseña segura".
+
+#### 6. Texto (TextTools)
+- **ContarPalabras**: Cuenta el número de palabras en un texto proporcionado.
+  - Ejemplo: "Cuenta las palabras en 'Este es un ejemplo de texto para contar'" o "Cuántas palabras tiene esta oración".
+
+#### 7. Países (CountryTools)
+- **GetCapital**: Obtiene la capital de un país especificado.
+  - Ejemplo: "Cuál es la capital de Brasil" o "Dime la capital de Francia".
+- **GetCountriesByRegion**: Lista los países de una región específica.
+  - Ejemplo: "Lista los países de Europa" o "Qué países hay en Asia".
+- **GetCountryInfo**: Obtiene información básica de un país (población, área, moneda, idiomas).
+  - Ejemplo: "Dame información de Alemania" o "Cuéntame sobre Japón".
+- **GetCapitalsByRegion**: Lista las capitales de los países de una región específica.
+  - Ejemplo: "Lista las capitales de Europa" o "Qué capitales hay en América del Sur".
+
+Para usar cualquier herramienta, simplemente describe lo que quieres hacer en lenguaje natural en Copilot Chat, y el sistema seleccionará automáticamente la herramienta apropiada del servidor MCP `MI_MCP`.
 
 ## Publicando en NuGet.org
 
