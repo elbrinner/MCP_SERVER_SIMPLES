@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "MCP_SIMPLES": {
+      "type": "stdio",
+      "command": "dotnet",
+      "args": [
+        "run",
+        "--project",
+        "MI_MCP/MI_MCP.csproj"
+      ]
+    }
+  }
+}
